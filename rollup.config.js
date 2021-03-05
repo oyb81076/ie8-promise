@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { uglify } from "rollup-plugin-uglify";
 
 export default [
+  // 近代游览器
   {
     input: "src/index.js",
     output: [
@@ -30,7 +31,7 @@ export default [
               useBuiltIns: "usage",
               corejs: 3,
               targets: {
-                browsers: ["> 1%", "not ie 11", "ios >= 10.4"],
+                browsers: ["> 1%", "not ie 11", "ios >= 11"],
               },
             },
           ],
@@ -39,6 +40,7 @@ export default [
       commonjs(),
     ],
   },
+  // 古代游览器
   {
     input: "src/index.js",
     output: [
@@ -64,7 +66,7 @@ export default [
               modules: false,
               useBuiltIns: "usage",
               corejs: 3,
-              targets: "ie 8",
+              targets: ["defaults", "ie >= 8", "ios >= 9"],
             },
           ],
         ],
